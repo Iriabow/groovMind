@@ -11,14 +11,18 @@ def redirect(request):
 
 
 def saveIp(request):
+    """
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:
         ip = x_forwarded_for.split(',')[0]
     else:
         ip = request.META.get('REMOTE_ADDR')
+    """
     address = Address.objects.first()
+
+    ip = request.GET['ipRedirection']
     if address:
-        address.ip=ip
+        address.ip= ip
         address.save()
     else:
         address=Address(ip=ip)
