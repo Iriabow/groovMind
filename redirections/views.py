@@ -6,7 +6,7 @@ def redirect(request):
     address = Address.objects.first()
     print(address.ip)
 
-    html = '<html><body><a href="http://'+address.ip+'">'+address.ip+'</a> <meta http-equiv="refresh" content="0; url=http://'+address.ip +'" /></body></html>'
+    html = '<html><body><a href="http://'+address.ip+'/redmine">'+address.ip+'/redmine</a> <meta http-equiv="refresh" content="0; url=http://'+address.ip +'/redmine" /></body></html>'
     return HttpResponse(html)
 
 
